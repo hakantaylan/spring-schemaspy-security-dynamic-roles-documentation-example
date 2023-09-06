@@ -1,0 +1,1 @@
+# spring-schemaspy-security-dynamic-roles-documentation-example

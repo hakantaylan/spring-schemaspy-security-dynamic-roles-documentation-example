@@ -30,11 +30,11 @@ jobs:
       - name: Build with Maven
         run: ./mvnw --batch-mode --update-snapshots verify
       - run: mkdir staging && cp target/*.jar staging
-#      - uses: actions/upload-artifact@v3
-#        with:
-#          name: Package
-#          path: staging
-#          retention-days: 5
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Package
+          path: .staging/
+          retention-days: 5
       - name: Upload Github Pages Artifact
         uses: actions/upload-pages-artifact@v1
         with:

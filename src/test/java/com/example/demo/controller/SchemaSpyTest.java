@@ -50,17 +50,14 @@ class SchemaSpyTest extends AbstractControllerTest {
             "-debug"
     );
 
-    schemaSpy.execInContainer("tar", "-czvf", "/tmp/output.tar.gz", "/output");
-    ls = schemaSpy.execInContainer("ls", "/tmp/");
-    System.out.println(ls.getStdout());
+    schemaSpy.execInContainer("tar", "-czvf", "/output/output.tar.gz", "/output");
     final var buildFolderPath =
-        Path.of(getClass().getResource("/").toURI().resolve("/docs/")).toAbsolutePath();
-//    Files.createDirectories(buildFolderPath);
+        Path.of(getClass().getResource("/").toURI().resolve("../docs")).toAbsolutePath();
     schemaSpy.copyFileFromContainer(
-        "/tmp/output.tar.gz",
+        "/output/output.tar.gz",
         buildFolderPath.resolve("output.tar.gz").toString()
     );
-    Path.of(getClass().getResource("/").toURI()).forEach(System.out::println);
+//    Path.of(getClass().getResource("/").toURI()).forEach(System.out::println);
     schemaSpy.stop();
 
     final var archiver = ArchiverFactory.createArchiver("tar", "gz");

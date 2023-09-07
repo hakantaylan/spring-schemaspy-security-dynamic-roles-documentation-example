@@ -49,11 +49,13 @@ class SchemaSpyTest extends AbstractControllerTest {
             "-debug"
     );
 
-    schemaSpy.execInContainer("tar", "-czvf", "/output/output.tar.gz", "/output");
+    schemaSpy.execInContainer("tar", "-czvf", "/output2/output.tar.gz", "/output");
+    ls = schemaSpy.execInContainer("ls", "output2");
+    System.out.println(ls.getStdout());
     final var buildFolderPath =
         Path.of(getClass().getResource("/").toURI().resolve("../docs")).toAbsolutePath();
     schemaSpy.copyFileFromContainer(
-        "/output/output.tar.gz",
+        "/output2/output.tar.gz",
         buildFolderPath.resolve("output.tar.gz").toString()
     );
     schemaSpy.stop();

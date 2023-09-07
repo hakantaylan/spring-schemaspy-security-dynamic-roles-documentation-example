@@ -3,7 +3,6 @@ package com.example.demo.controller;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import lombok.Cleanup;
 import lombok.SneakyThrows;
@@ -57,7 +56,6 @@ class SchemaSpyTest extends AbstractControllerTest {
         "/output/output.tar.gz",
         buildFolderPath.resolve("output.tar.gz").toString()
     );
-//    Path.of(getClass().getResource("/").toURI()).forEach(System.out::println);
     schemaSpy.stop();
 
     final var archiver = ArchiverFactory.createArchiver("tar", "gz");

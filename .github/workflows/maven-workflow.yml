@@ -23,6 +23,8 @@ jobs:
           java-version: '19'
           distribution: 'temurin'
           cache: maven
+      - name: Cretae doc directory
+        run: mkdir -p target/docs
       - name: Change wrapper permissions
         run: chmod +x ./mvnw
       - name: Build with Maven

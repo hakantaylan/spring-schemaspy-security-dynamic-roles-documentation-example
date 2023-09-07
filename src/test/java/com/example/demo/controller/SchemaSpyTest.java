@@ -53,7 +53,7 @@ class SchemaSpyTest extends AbstractControllerTest {
     ls = schemaSpy.execInContainer("ls", "/tmp/");
     System.out.println(ls.getStdout());
     final var buildFolderPath =
-        Path.of(getClass().getResource("/").toURI().resolve("../docs")).toAbsolutePath();
+        Path.of(getClass().getResource("/").toURI().resolve("docs")).toAbsolutePath();
     schemaSpy.copyFileFromContainer(
         "/tmp/output.tar.gz",
         buildFolderPath.resolve("output.tar.gz").toString()

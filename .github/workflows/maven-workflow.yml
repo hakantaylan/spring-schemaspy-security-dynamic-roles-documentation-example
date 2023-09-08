@@ -33,7 +33,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Package
-          path: .staging/
+          path: staging
           retention-days: 5
       - name: Upload Github Pages Artifact
         uses: actions/upload-pages-artifact@v1
